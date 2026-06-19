@@ -1,0 +1,286 @@
+/* =========================================================
+   style.css — StudentHub theme
+   ========================================================= */
+
+:root {
+  --color-bg: #F1F5F4;
+  --color-surface: #FFFFFF;
+  --color-primary: #0F766E;       /* teal */
+  --color-primary-dark: #0B5D56;
+  --color-accent: #134E4A;
+  --color-success: #15803D;
+  --color-success-bg: #ECFDF5;
+  --color-danger: #B91C1C;
+  --color-danger-bg: #FEF2F2;
+  --color-text: #1F2937;
+  --color-muted: #6B7280;
+  --color-border: #DCE3E1;
+
+  --font-heading: 'Poppins', 'Segoe UI', system-ui, Arial, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, Arial, sans-serif;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-card: 0 8px 26px rgba(15, 118, 110, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+}
+
+/* ---------- TOPBAR ---------- */
+.topbar {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 28px 6%;
+  text-align: center;
+}
+
+.topbar h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.topbar h1 span {
+  color: #5EEAD4; /* light teal accent */
+}
+
+.subtitle {
+  color: #B6D8D4;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ---------- LAYOUT ---------- */
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 28px;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  color: var(--color-accent);
+}
+
+/* ---------- FORM ---------- */
+.form-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group-small {
+  flex: 0 0 120px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background: #FAFCFB;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: #fff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--color-primary-dark); }
+
+.btn-secondary {
+  background: #E5E7EB;
+  color: var(--color-text);
+}
+.btn-secondary:hover { background: #D1D5DB; }
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline:hover { background: #F0FDFA; }
+
+/* Small action buttons inside table rows */
+.btn-edit, .btn-delete {
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  font-weight: 600;
+}
+
+.btn-edit {
+  background: #E0F2F1;
+  color: var(--color-primary-dark);
+}
+.btn-edit:hover { background: #CCEAE8; }
+
+.btn-delete {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+.btn-delete:hover { background: #FEE2E2; }
+
+/* ---------- STATUS MESSAGE ---------- */
+.status-msg {
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  min-height: 18px;
+}
+
+.status-msg.success { color: var(--color-success); }
+.status-msg.error { color: var(--color-danger); }
+
+/* ---------- TABLE ---------- */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.table-header h2 { margin-bottom: 0; }
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+th {
+  color: var(--color-muted);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+tbody tr:hover {
+  background: #F7FBFA;
+}
+
+.empty-row {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 24px;
+}
+
+/* Highlights a row briefly right after it's added/updated --
+   purely cosmetic, toggled by script.js then removed after a beat */
+tr.row-flash {
+  animation: flash 1s ease;
+}
+
+@keyframes flash {
+  from { background: #D1FAE5; }
+  to   { background: transparent; }
+}
+
+/* ---------- UTILITY ---------- */
+.hidden {
+  display: none !important;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .card { padding: 20px; }
+}

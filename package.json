@@ -1,0 +1,15 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Student Management System demonstrating Express REST APIs, JSON file storage, and Fetch API front-end CRUD (College Practical - Task 5)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["express", "rest-api", "crud", "fetch-api", "college-project"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

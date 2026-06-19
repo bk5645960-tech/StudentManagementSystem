@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudentHub | Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>Student<span>Hub</span></h1>
+    <p class="subtitle">CRUD demo — Express REST API + Fetch API (Task 5)</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ======================= FORM CARD ======================= -->
+    <!-- One form handles BOTH "Add" and "Edit". script.js decides
+         which mode we're in using a hidden input (#studentId).
+         If it's empty -> Add (POST). If it has a value -> Edit (PUT). -->
+    <section class="card form-card">
+      <h2 id="formTitle">Add New Student</h2>
+
+      <form id="studentForm" novalidate>
+        <!-- Hidden field: empty = "add mode", filled = "edit mode".
+             This never shows on screen but script.js reads its value
+             to decide whether to POST or PUT on submit. -->
+        <input type="hidden" id="studentId" value="" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="e.g. Bharath Kumar" required />
+          </div>
+          <div class="form-group">
+            <label for="rollNo">Roll Number</label>
+            <input type="text" id="rollNo" placeholder="e.g. CSE2026001" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="e.g. name@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" placeholder="e.g. Computer Science" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-group-small">
+            <label for="year">Year</label>
+            <select id="year">
+              <option value="">--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Add Student</button>
+          <!-- Only visible while editing -- lets the user back out
+               of an edit without saving changes. -->
+          <button type="button" class="btn btn-secondary hidden" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+
+      <!-- Status messages (success/error) after every Fetch call show up here. -->
+      <p id="statusMsg" class="status-msg"></p>
+    </section>
+
+    <!-- ======================= RECORDS TABLE ======================= -->
+    <section class="card">
+      <div class="table-header">
+        <h2>All Students</h2>
+        <button class="btn btn-outline" id="refreshBtn">🔄 Refresh</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Roll No</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <!-- This <tbody> starts empty. script.js fills it in with
+               <tr> rows built from whatever the GET /api/students
+               call returns -- that's the "dynamic DOM update without
+               a page refresh" requirement in action. -->
+          <tbody id="studentTableBody">
+            <tr><td colspan="7" class="empty-row">Loading students...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Built with Node.js, Express &amp; Vanilla JS — Task 5 College Practical Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

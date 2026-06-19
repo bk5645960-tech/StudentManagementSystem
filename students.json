@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Bharath Kumar",
+    "rollNo": "CSE2026001",
+    "email": "bharath.kumar@example.com",
+    "department": "Computer Science",
+    "year": 4
+  },
+  {
+    "id": 2,
+    "name": "Priya Sharma",
+    "rollNo": "CSE2026002",
+    "email": "priya.sharma@example.com",
+    "department": "Information Technology",
+    "year": 3
+  },
+  {
+    "id": 3,
+    "name": "Arjun Reddy",
+    "rollNo": "ECE2026010",
+    "email": "arjun.reddy@example.com",
+    "department": "Electronics & Communication",
+    "year": 2
+  }
+]
